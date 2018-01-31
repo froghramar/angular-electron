@@ -19,7 +19,7 @@ import { AppComponent } from './components/root/root.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/root/', '.json');
 }
 
 @NgModule({

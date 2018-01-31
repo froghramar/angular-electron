@@ -19,7 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/home/', '.json');
 }
 
 @NgModule({
@@ -36,7 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         provide: TranslateLoader,
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
-      }
+      },
+      isolate: true
     })
   ],
   providers: [ElectronService]
