@@ -7,18 +7,15 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-
 // NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { ElectronService } from './providers/electron.service';
+import { RootRoutingModule } from './root.routing';
 
-import { WebviewDirective } from 'app/directives/webview.directive';
+import { ElectronService } from '../../providers/electron.service';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { AppComponent } from './components/root/root.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,15 +24,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    WebviewDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
+    RootRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -47,4 +42,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [ElectronService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class RootModule { }
